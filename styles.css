@@ -16,7 +16,7 @@ body {
   margin-top: 60px;
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  max-width: 700px;
+  max-width: 900px;
   width: 100%;
   text-align: center;
 }
@@ -72,7 +72,9 @@ button:disabled {
   box-shadow: none;
 }
 
-#tableOutput {
+table, tr, td, th {
+  padding: 10px;
+  border: 2px solid #000;
   border-collapse: collapse;
   margin-top: 30px;
   overflow-x: auto;

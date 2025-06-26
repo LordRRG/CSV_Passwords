@@ -35,6 +35,10 @@ let csvData = [];
 document.getElementById("csvFile").addEventListener("change", function (e) {
   const file = e.target.files[0];
   if (!file) return;
+  if (!file.name.endsWith(".csv")) {
+    alert("Please upload a valid CSV file.");
+    return;
+  }
   if (document.getElementById("csvFile")) {
     document.getElementById("generatepasswords").disabled = false;
     document.getElementById("downloadcsv").disabled = false;
@@ -52,7 +56,6 @@ document.getElementById("csvFile").addEventListener("change", function (e) {
 
 function displayTable(data) {
   const table = document.createElement("table");
-  table.border = "1";
 
   data.forEach((row, rowIndex) => {
     const tr = document.createElement("tr");
@@ -71,6 +74,7 @@ function displayTable(data) {
 
 document.getElementById("generatepasswords").addEventListener("click", () => {
   // Modify csvData
+
   const hasPasswordColumn = csvData[0].includes("Password");
   if (hasPasswordColumn) {
     alert("Password column already exists!")
